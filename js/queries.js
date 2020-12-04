@@ -50,7 +50,7 @@ var   getInstallRequests = obj =>{
       return sql
     },
     getClientByInstallSiteId = obj => {
-      sql = 'select a.id,a.name,a.address from clients a '
+      sql = 'select a.id,b.id client_site_id,a.name,a.address from clients a '
       sql+= 'left outer join client_sites b on b.client_id=a.id '
       sql+= 'left outer join install_sites c on c.client_site_id=b.id '
       sql+= 'where c.id='+obj.install_site_id
